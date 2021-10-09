@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartDataSets } from 'chart.js';
-import { Color, Label } from 'ng2-charts';
+import { Chart, registerables } from 'chart.js';
 
 @Component({
   selector: 'app-line-chart',
@@ -8,12 +7,12 @@ import { Color, Label } from 'ng2-charts';
   styleUrls: ['./line-chart.component.scss']
 })
 export class LineChartComponent implements OnInit {
-  lineChartData: ChartDataSets[] = [{ data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },];
-  lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  lineChartData: any[] = [{ data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },];
+  lineChartLabels: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   lineChartOptions = {
     responsive: true,
   };
-  lineChartColors: Color[] = [
+  lineChartColors: any[] = [
     {
       borderColor: 'black',
       backgroundColor: 'rgba(255,0,0,0.3)',
@@ -23,9 +22,26 @@ export class LineChartComponent implements OnInit {
   lineChartType: string = 'line';
   lineChartPlugins = [];
   chart: any;
-  constructor() { }
+  constructor() {
+    Chart.register(...registerables);
+  }
 
   ngOnInit(): void {
+    this.chart = new Chart('canvas', {
+      type: 'line',
+      data: {
+        labels: this.lineChartLabels,
+        datasets: this.lineChartData
+      },
+    });
   }
+  
+  // [datasets]="lineChartData"
+  // [labels]="lineChartLabels"
+  // [options]="lineChartOptions"
+  // [colors]="lineChartColors"
+  // [legend]="lineChartLegend"
+  // [chartType]="lineChartType"
+  // [plugins]="lineChartPlugins"
 
 }
