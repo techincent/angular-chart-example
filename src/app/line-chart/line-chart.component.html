@@ -1,9 +1,5 @@
 <div class="row">
-  <div class="col-4 offset-2">
-    <canvas id="id_chart">{{ chart }}</canvas>
-    <h3 class="text-center mt-3">Line Chart</h3>
-  </div>
-  <div class="col-4">
+  <div class="col-6 offset-3">
     <canvas baseChart width="400" height="400"
       [datasets]="lineChartData"
       [labels]="lineChartLabels"
@@ -13,6 +9,6 @@
       [chartType]="'line'"
       [plugins]="lineChartPlugins">
     </canvas>
-    <h3 class="text-center mt-3">ng2 Line Chart</h3>
+    <h3 class="text-center mt-3">Line Chart</h3>
   </div>
 </div>
