@@ -13,19 +13,12 @@ export class LineChartComponent implements OnInit {
   lineChartOptions = {
     responsive: true,
   };
-  lineChartColors: Color[] = [
-    {
-      borderColor: 'black',
-      backgroundColor: 'rgba(255,0,0,0.3)',
-    },
-  ];
+  lineChartColors: Color[] = [{ borderColor: 'black', backgroundColor: 'rgba(255,0,0,0.3)'}];
   lineChartLegend = true;
   lineChartType: string = 'line';
   lineChartPlugins = [];
   chart: any;
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void { }
 }

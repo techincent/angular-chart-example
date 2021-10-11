@@ -25,7 +25,5 @@ export class PolarChartComponent implements OnInit {
   }
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void { }
 }
